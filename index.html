@@ -566,6 +566,179 @@
   }
   .price-list svg{ width: 16px; height: 16px; flex: none; margin-top: 6px; stroke: var(--accent); fill: none; stroke-width: 1.4; }
 
+  /* ===== USLUGE UZ MENI ===== */
+  .svc-block{
+    margin-top: 96px;
+    padding-top: 64px;
+    border-top: 1px solid var(--accent-line);
+  }
+  .svc-head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .svc-head .eyebrow{ margin-bottom: 16px; }
+  .svc-head h3{ font-size: 32px; }
+  .svc-head p{ font-size: 16px; max-width: 44ch; }
+  .svc-grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .svc-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-ctrl);
+    background: var(--bg);
+    padding: 28px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .svc-card:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .svc-tag{
+    align-self: flex-start;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .svc-name{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .svc-card p{ font-size: 16px; }
+  .svc-more{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 48px;
+  }
+  .svc-more p{
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  /* ===== KATALOG USLUGA (preko celog ekrana) ===== */
+  .catalog{
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: var(--bg);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .catalog-head{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: rgba(253, 252, 254, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-line);
+  }
+  .catalog-head-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  .catalog-title{ display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .catalog-title h2{ font-size: 32px; }
+  .catalog-count{ font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
+  .catalog-close{
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .catalog-close svg{ width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.2; }
+  .catalog-close:hover{ background: var(--ink); color: var(--bg); }
+
+  .catalog-body{ padding-top: 40px; padding-bottom: 80px; }
+  .catalog-filters{ display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+  .chip{
+    padding: 10px 20px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    background: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .chip:hover{ border-color: var(--accent); color: var(--accent); }
+  .chip[aria-pressed="true"]{ background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .catalog-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .cat-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-ctrl);
+    background: var(--bg-soft);
+    padding: 28px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .cat-card:hover{ border-color: var(--accent); transform: translateY(-2px); }
+  .cat-name{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .cat-card p{ font-size: 16px; margin-bottom: 20px; }
+  .cat-meta{
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--accent-line);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .catalog-foot{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--accent-line);
+  }
+  .catalog-foot p{ font-size: 16px; max-width: 44ch; }
+
   /* ===== O NAMA ===== */
   .about-layout{
     display: grid;
@@ -744,6 +917,7 @@
     .halls-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .ps-grid{ grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); }
     .ps-card{ padding: 40px 32px; }
+    .svc-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   @media (max-width: 991px){
@@ -781,6 +955,20 @@
 
     .ps-card{ padding: 32px 24px; }
     .ps-foot{ margin-top: 40px; gap: 24px; }
+
+    .svc-block{ margin-top: 64px; padding-top: 48px; }
+    .svc-head{ margin-bottom: 32px; }
+    .svc-head h3{ font-size: 24px; }
+    .svc-grid{ grid-template-columns: 1fr; }
+    .svc-card{ padding: 24px; }
+    .svc-more{ margin-top: 32px; }
+
+    .catalog-title h2{ font-size: 24px; }
+    .catalog-grid{ grid-template-columns: 1fr; gap: 16px; }
+    .cat-card{ padding: 24px; }
+    .catalog-body{ padding-top: 32px; padding-bottom: 56px; }
+    .catalog-filters{ margin-bottom: 32px; }
+    .catalog-foot .btn{ width: 100%; }
 
     .halls-grid{ grid-template-columns: 1fr; }
     .hall-body{ padding: 28px 24px; }
@@ -1072,6 +1260,46 @@
       </ul>
     </div>
   </div>
+
+  <div class="wrap">
+    <div class="svc-block">
+      <div class="svc-head reveal">
+        <div>
+          <span class="eyebrow">Uz meni</span>
+          <h3>Usluge koje idu uz sto</h3>
+        </div>
+        <p>Sve se dogovara uz meni, u istom razgovoru. Ne tražiš nikoga sa strane.</p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc-card reveal">
+          <span class="svc-tag">Hrana</span>
+          <div class="svc-name">Degustacija menija</div>
+          <p>Probaš jela pre nego što potvrdiš termin, pa biraš na osnovu ukusa.</p>
+        </article>
+        <article class="svc-card reveal">
+          <span class="svc-tag">Piće</span>
+          <div class="svc-name">Piće tokom programa</div>
+          <p>Uključeno za ceo večernji program, bez naplate po flaši.</p>
+        </article>
+        <article class="svc-card reveal">
+          <span class="svc-tag">Posluga</span>
+          <div class="svc-name">Konobari i osoblje</div>
+          <p>Broj konobara slažemo prema broju stolova i toku večeri.</p>
+        </article>
+        <article class="svc-card reveal">
+          <span class="svc-tag">Dekoracija</span>
+          <div class="svc-name">Dekoracija stola</div>
+          <p>Cveće, stolnjaci i sveće u bojama koje izabereš za slavlje.</p>
+        </article>
+      </div>
+
+      <div class="svc-more reveal">
+        <button type="button" class="btn btn-secondary" id="catalogOpen" aria-haspopup="dialog">Pogledaj sve usluge</button>
+        <p>15 usluga uz meni</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="o-nama" class="section">
@@ -1222,6 +1450,118 @@
   </div>
 </footer>
 
+<div class="catalog" id="catalog" role="dialog" aria-modal="true" aria-labelledby="catalogTitle" hidden>
+  <div class="catalog-head">
+    <div class="wrap catalog-head-inner">
+      <div class="catalog-title">
+        <h2 id="catalogTitle">Sve usluge uz meni</h2>
+        <span class="catalog-count" id="catalogCount">15 usluga</span>
+      </div>
+      <button type="button" class="catalog-close" id="catalogClose" aria-label="Zatvori spisak usluga">
+        <svg viewBox="0 0 24 24" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="wrap catalog-body">
+    <div class="catalog-filters" id="catalogFilters">
+      <button type="button" class="chip" data-filter="sve" aria-pressed="true">Sve</button>
+      <button type="button" class="chip" data-filter="hrana" aria-pressed="false">Hrana</button>
+      <button type="button" class="chip" data-filter="pice" aria-pressed="false">Piće</button>
+      <button type="button" class="chip" data-filter="posluga" aria-pressed="false">Posluga</button>
+      <button type="button" class="chip" data-filter="dekoracija" aria-pressed="false">Dekoracija</button>
+      <button type="button" class="chip" data-filter="organizacija" aria-pressed="false">Organizacija</button>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid">
+      <article class="cat-card" data-kat="hrana">
+        <div class="cat-name">Degustacija menija</div>
+        <p>Probaš jela pre nego što potvrdiš termin, pa biraš na osnovu ukusa, a ne opisa.</p>
+        <div class="cat-meta">Pre rezervacije</div>
+      </article>
+      <article class="cat-card" data-kat="hrana">
+        <div class="cat-name">Predjelo, glavno jelo i desert</div>
+        <p>Tri sleda, biraš iz predloženog raspona jela prema broju gostiju i budžetu.</p>
+        <div class="cat-meta">U ceni menija</div>
+      </article>
+      <article class="cat-card" data-kat="hrana">
+        <div class="cat-name">Hladni poslužavnici</div>
+        <p>Postavljeni na svaki sto, u količini prilagođenoj broju gostiju za tim stolom.</p>
+        <div class="cat-meta">U ceni menija</div>
+      </article>
+      <article class="cat-card" data-kat="hrana">
+        <div class="cat-name">Svečana torta</div>
+        <p>Veličinu, ukus i trenutak izlaska torte dogovaramo unapred sa tobom.</p>
+        <div class="cat-meta">Po dogovoru</div>
+      </article>
+      <article class="cat-card" data-kat="hrana">
+        <div class="cat-name">Meni za decu</div>
+        <p>Manje porcije i jednostavnija jela za najmlađe goste za stolom.</p>
+        <div class="cat-meta">Po dogovoru</div>
+      </article>
+      <article class="cat-card" data-kat="hrana">
+        <div class="cat-name">Posno i vegetarijansko</div>
+        <p>Zamena za goste koji ne jedu meso, javiš nam broj unapred.</p>
+        <div class="cat-meta">Po dogovoru</div>
+      </article>
+
+      <article class="cat-card" data-kat="pice">
+        <div class="cat-name">Piće tokom programa</div>
+        <p>Uključeno za ceo večernji program, bez naknadne naplate po flaši.</p>
+        <div class="cat-meta">U ceni menija</div>
+      </article>
+      <article class="cat-card" data-kat="pice">
+        <div class="cat-name">Welcome drink</div>
+        <p>Posluženje gostima na ulazu, dok se skuplja društvo pre sedanja za sto.</p>
+        <div class="cat-meta">Po dogovoru</div>
+      </article>
+      <article class="cat-card" data-kat="pice">
+        <div class="cat-name">Otvoreni bar</div>
+        <p>Prošireni izbor pića za goste koji ostaju do kraja večeri.</p>
+        <div class="cat-meta">Po dogovoru</div>
+      </article>
+
+      <article class="cat-card" data-kat="posluga">
+        <div class="cat-name">Konobari i osoblje</div>
+        <p>Broj konobara slažemo prema broju stolova, da se ne čeka na posluživanje.</p>
+        <div class="cat-meta">U ceni menija</div>
+      </article>
+      <article class="cat-card" data-kat="posluga">
+        <div class="cat-name">Postavka stolova</div>
+        <p>Escajg, čaše i stolnjaci postavljeni pre dolaska prvih gostiju.</p>
+        <div class="cat-meta">U ceni menija</div>
+      </article>
+
+      <article class="cat-card" data-kat="dekoracija">
+        <div class="cat-name">Dekoracija stola</div>
+        <p>Cveće, stolnjaci i sveće u bojama i temi koju izabereš za slavlje.</p>
+        <div class="cat-meta">U ceni sale</div>
+      </article>
+      <article class="cat-card" data-kat="dekoracija">
+        <div class="cat-name">Osvetljenje sale</div>
+        <p>Ambijentalno svetlo koje menjamo prema delu večeri i programu.</p>
+        <div class="cat-meta">U ceni sale</div>
+      </article>
+
+      <article class="cat-card" data-kat="organizacija">
+        <div class="cat-name">Raspored sedenja</div>
+        <p>Stolove i goste slažemo po tvom spisku, sa rasporedom koji nam pošalješ.</p>
+        <div class="cat-meta">Dogovor unapred</div>
+      </article>
+      <article class="cat-card" data-kat="organizacija">
+        <div class="cat-name">Tok programa i satnica</div>
+        <p>Dogovor sa muzičarima, redosled zdravica i satnica celog večera.</p>
+        <div class="cat-meta">Dogovor unapred</div>
+      </article>
+    </div>
+
+    <div class="catalog-foot">
+      <p>Ne vidiš nešto što ti treba? Pitaj, većinu stvari možemo da dogovorimo uz meni.</p>
+      <button type="button" class="btn btn-primary" id="catalogCta">Zatraži ponudu</button>
+    </div>
+  </div>
+</div>
+
 <script>
   /* ===== HEADER I MOBILNI MENI ===== */
   var hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -1247,6 +1587,62 @@
   }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ===== KATALOG USLUGA ===== */
+  var catalog = document.getElementById('catalog');
+  var catalogOpen = document.getElementById('catalogOpen');
+  var catalogClose = document.getElementById('catalogClose');
+  var catalogCta = document.getElementById('catalogCta');
+  var catalogCount = document.getElementById('catalogCount');
+  var catalogCards = catalog.querySelectorAll('.cat-card');
+  var catalogFocus = null;
+
+  function usluga(n) {
+    if (n === 1) return ' usluga';
+    if (n > 1 && n < 5) return ' usluge';
+    return ' usluga';
+  }
+
+  function openCatalog() {
+    catalogFocus = document.activeElement;
+    catalog.hidden = false;
+    document.body.style.overflow = 'hidden';
+    catalog.scrollTop = 0;
+    catalogClose.focus();
+  }
+
+  function closeCatalog() {
+    catalog.hidden = true;
+    document.body.style.overflow = '';
+    if (catalogFocus) catalogFocus.focus();
+  }
+
+  catalogOpen.addEventListener('click', openCatalog);
+  catalogClose.addEventListener('click', closeCatalog);
+  catalogCta.addEventListener('click', function () {
+    closeCatalog();
+    document.getElementById('kontakt').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var filter = chip.getAttribute('data-filter');
+      document.getElementById('catalogFilters').querySelectorAll('.chip').forEach(function (c) {
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      var shown = 0;
+      catalogCards.forEach(function (card) {
+        var match = filter === 'sve' || card.getAttribute('data-kat') === filter;
+        card.hidden = !match;
+        if (match) shown += 1;
+      });
+      catalogCount.textContent = shown + usluga(shown);
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !catalog.hidden) closeCatalog();
+  });
 
   /* ===== REVEAL ===== */
   if ('IntersectionObserver' in window) {
