@@ -7,954 +7,1003 @@
 <meta name="description" content="Event Centar S - tri sale za svadbe, krštenja, rođendane i korporativne proslave u Zemunu. Kapacitet do 450 gostiju, meni od 35 do 60 evra, parking i dekoracija uključeni.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --accent:#7360f2;
-    --accent-dark:#5847c9;
-    --accent-darker:#463aa3;
-    --accent-soft:#f2effe;
-    --accent-soft-2:#e9e4fc;
-    --accent-glow: rgba(115,96,242,0.28);
-    --text:#1c1832;
-    --text-muted: rgba(28,24,50,0.66);
-    --text-faint: rgba(28,24,50,0.46);
-    --bg:#fdfcfe;
-    --line: rgba(115,96,242,0.16);
-    --radius-card: 22px;
-    --radius-btn: 999px;
+    --accent:        #7360f2;
+    --accent-dark:   #5847c9;
+    --accent-light:  #a99bff;
+    --accent-soft:   #f4f1fe;
+    --accent-line:   rgba(115, 96, 242, 0.18);
+
+    --ink:           #16122b;
+    --text:          #1c1832;
+    --text-muted:    rgba(28, 24, 50, 0.66);
+    --text-faint:    rgba(28, 24, 50, 0.46);
+
+    --bg:            #fdfcfe;
+    --bg-soft:       #f7f5fd;
+
+    --radius-card:   24px;
+    --radius-ctrl:   12px;
+
+    --container:     1280px;
+    --section-y:     128px;
+    --gutter:        24px;
   }
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+
+  html{ scroll-behavior: smooth; }
+
   body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Open Sans', sans-serif;
-    font-weight:400;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.68;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  h1,h2,h3{
-    font-family:'Marcellus', serif;
-    font-weight:400;
-    line-height:1.15;
-    margin:0 0 16px;
-    color:var(--text);
+
+  img{ max-width: 100%; display: block; }
+  a{ text-decoration: none; color: inherit; }
+  ul{ list-style: none; }
+  svg{ display: block; }
+  [hidden]{ display: none !important; }
+
+  h1, h2, h3, .serif{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.08;
+    letter-spacing: 0;
   }
-  p{margin:0 0 16px; color:var(--text-muted);}
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  ul{margin:0; padding:0; list-style:none;}
-  svg{display:block;}
+
+  h1{ font-size: 66px; }
+  h2{ font-size: clamp(36px, 4vw, 56px); }
+  h3{ font-size: 28px; line-height: 1.2; }
+
+  p{ color: var(--text-muted); }
+  .p-max{ max-width: 56ch; }
 
   .wrap{
-    max-width:1280px;
-    margin:0 auto;
-    padding-left:24px;
-    padding-right:24px;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
   }
 
-  section{
-    padding-top:96px;
-    padding-bottom:96px;
+  .section{
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y);
   }
 
   .eyebrow{
-    display:inline-block;
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:var(--accent-dark);
-    font-weight:700;
-    margin-bottom:14px;
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
-  .section-head{
-    max-width:640px;
-    margin:0 auto 56px;
-    text-align:center;
-  }
-  .section-head h2{font-size:clamp(28px,4vw,40px);}
-  .section-head p{max-width:60ch; margin-left:auto; margin-right:auto;}
+  .section-head{ margin-bottom: 64px; }
+  .section-head .eyebrow{ margin-bottom: 16px; }
+  .section-head h2{ margin-bottom: 20px; }
+  .section-head.center{ text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .section-head.center p{ margin-left: auto; margin-right: auto; }
 
-  /* ---------- BUTTONS ---------- */
+  /* ===== DUGMAD: tri nivoa ===== */
   .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:16px 32px;
-    border-radius:var(--radius-btn);
-    font-family:'Open Sans', sans-serif;
-    font-weight:700;
-    font-size:15px;
-    border:2px solid transparent;
-    cursor:pointer;
-    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
-    white-space:nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
   }
-  .btn-primary{
-    background:var(--accent);
-    color:#fff;
-    box-shadow:0 14px 30px -12px var(--accent-glow);
-  }
-  .btn-primary:hover{
-    background:var(--accent-dark);
-    transform:translateY(-2px);
-    box-shadow:0 18px 36px -12px var(--accent-glow);
-  }
-  .btn-outline{
-    background:transparent;
-    border-color: var(--accent);
-    color:var(--accent-dark);
-  }
-  .btn-outline:hover{
-    background:var(--accent-soft);
-    transform:translateY(-2px);
-  }
-  .btn-light{
-    background:#fff;
-    color:var(--accent-dark);
-  }
-  .btn-light:hover{
-    background:var(--accent-soft);
-    transform:translateY(-2px);
-  }
-  .btn-small{padding:11px 22px; font-size:14px;}
+  .btn svg{ width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.2; }
 
-  /* ---------- HEADER ---------- */
-  .site-header{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:200;
-    background:transparent;
-    transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+  .btn-primary{
+    padding: 20px 36px;
+    background: var(--accent);
+    color: #fff;
   }
-  .site-header.scrolled{
-    background:rgba(253,252,254,0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow:0 8px 30px -20px rgba(28,24,50,0.35);
+  .btn-primary:hover{ background: var(--accent-dark); }
+
+  .btn-secondary{
+    padding: 20px 36px;
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .btn-secondary:hover{ background: var(--accent); color: #fff; }
+
+  .btn-tertiary{
+    padding-bottom: 8px;
+    background: transparent;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent-line);
+  }
+  .btn-tertiary:hover{ gap: 20px; border-bottom-color: var(--accent); }
+
+  .on-dark.btn-primary{ background: var(--bg); color: var(--ink); }
+  .on-dark.btn-primary:hover{ background: #fff; }
+  .on-dark.btn-secondary{ color: var(--bg); border-color: rgba(253, 252, 254, 0.4); }
+  .on-dark.btn-secondary:hover{ background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .on-dark.btn-tertiary{ color: var(--bg); border-bottom-color: rgba(253, 252, 254, 0.32); }
+  .on-dark.btn-tertiary:hover{ border-bottom-color: var(--bg); }
+
+  /* ===== HEADER ===== */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  header.scrolled{
+    background: rgba(253, 252, 254, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: var(--accent-line);
   }
   .header-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-top:16px;
-    padding-bottom:16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
-  .logo{display:flex; align-items:center; gap:10px;}
-  .logo img{height:46px; width:auto;}
-  .logo-text{
-    font-family:'Marcellus', serif;
-    font-size:19px;
-    letter-spacing:0.5px;
-    color:var(--text);
+  .logo{ display: flex; align-items: center; gap: 12px; }
+  .logo img{ height: 40px; width: auto; }
+  nav.desktop-nav{ display: flex; align-items: center; gap: 40px; }
+  nav.desktop-nav a{
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
   }
-  .site-header.scrolled .logo-text{color:var(--text);}
-  .nav-desktop{
-    display:flex;
-    align-items:center;
-    gap:36px;
-  }
-  .nav-desktop a:not(.btn){
-    font-size:15px;
-    font-weight:600;
-    color:var(--text);
-    position:relative;
-    padding-bottom:4px;
-  }
-  .nav-desktop a:not(.btn)::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:0; height:2px;
-    background:var(--accent);
-    transition:width .25s ease;
-  }
-  .nav-desktop a:not(.btn):hover::after{width:100%;}
+  nav.desktop-nav a:hover{ color: var(--accent); }
 
   .hamburger{
-    display:none;
-    background:none;
-    border:none;
-    cursor:pointer;
-    padding:8px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
   }
   .hamburger span{
-    display:block;
-    width:26px;
-    height:2px;
-    background:var(--text);
-    margin:6px 0;
-    transition:transform .25s ease, opacity .25s ease;
+    display: block;
+    height: 1px;
+    width: 28px;
+    background: var(--ink);
+    transition: transform 0.25s ease, opacity 0.25s ease;
   }
-  .hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
-  .hamburger.open span:nth-child(2){opacity:0;}
-  .hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .hamburger.active span:nth-child(1){ transform: translateY(4px) rotate(45deg); }
+  .hamburger.active span:nth-child(2){ opacity: 0; }
+  .hamburger.active span:nth-child(3){ transform: translateY(-4px) rotate(-45deg); }
 
-  .mobile-menu{
-    display:none;
-    flex-direction:column;
-    background:#fff;
-    border-top:1px solid var(--line);
-    box-shadow:0 20px 30px -20px rgba(28,24,50,0.3);
+  .mobile-nav{
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--bg);
+    border-bottom: 1px solid var(--accent-line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
-  .mobile-menu.open{display:flex;}
-  .mobile-menu a{
-    padding:18px 24px;
-    border-bottom:1px solid var(--line);
-    font-weight:600;
-    font-size:16px;
+  .mobile-nav.open{ max-height: 480px; }
+  .mobile-nav-inner{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
-  .mobile-menu a.btn{
-    margin:16px 24px;
-    text-align:center;
-    border-bottom:none;
-    justify-content:center;
+  .mobile-nav-inner a{
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .mobile-nav-inner .btn{ align-self: flex-start; }
+
+  /* ===== HERO ===== */
+  .hero{ padding-top: 56px; padding-bottom: 96px; }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-text .eyebrow{ margin-bottom: 16px; }
+  .hero h1{ margin-bottom: 28px; }
+  .hero h1 em{
+    display: block;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-lead{
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 46ch;
+    margin-bottom: 44px;
+  }
+  .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }
+  .hero-media{ height: 100%; min-height: 560px; }
+  .hero-media img{ width: 100%; height: 100%; object-fit: cover; }
+
+  /* ===== INTRO ===== */
+  .intro{ padding-top: 96px; padding-bottom: 96px; border-bottom: 1px solid var(--accent-line); }
+  .intro-inner{ max-width: 760px; margin: 0 auto; text-align: center; }
+  .intro-inner p{ font-size: 20px; line-height: 1.6; color: var(--text); }
+
+  /* ===== SALE ===== */
+  .halls{ background: var(--bg-soft); }
+  .halls-grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .hall-card{
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .hall-card:hover{ border-color: var(--accent); transform: translateY(-4px); }
+  .hall-media{ height: 240px; overflow: hidden; }
+  .hall-media img{ width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .hall-card:hover .hall-media img{ transform: scale(1.04); }
+  .hall-body{ display: flex; flex-direction: column; padding: 32px; }
+  .hall-badge{
+    align-self: flex-start;
+    padding: 8px 20px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hall-body h3{ margin-bottom: 12px; }
+  .hall-body p{ font-size: 16px; }
+
+  .photo-placeholder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 24px;
+    background: #ebe7f7;
+    color: var(--text-faint);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
-  @media (max-width:991px){
-    .nav-desktop{display:none;}
-    .hamburger{display:block;}
+  /* ===== ŠTA DOBIJAŠ ===== */
+  .features-layout{
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 96px;
+    align-items: start;
   }
+  .features-head{ position: sticky; top: 128px; }
+  .features-head .eyebrow{ margin-bottom: 16px; }
+  .features-head h2{ margin-bottom: 20px; }
+  .features-list{ border-top: 1px solid var(--accent-line); }
+  .feature-row{
+    display: grid;
+    grid-template-columns: 56px minmax(0, 220px) minmax(0, 1fr) 40px;
+    gap: 24px;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--accent-line);
+  }
+  .feature-num{ font-size: 12px; letter-spacing: 0.16em; color: var(--accent); }
+  .feature-row p{ font-size: 16px; }
+  .feature-mark{
+    justify-self: end;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    color: var(--accent);
+  }
+  .feature-mark svg{ width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    min-height:92vh;
-    display:flex;
-    align-items:center;
-    padding-top:140px;
-    padding-bottom:96px;
-    overflow:hidden;
+  /* ===== MENI / CENA ===== */
+  .pricing{ background: var(--bg-soft); }
+  .pricing-layout{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 96px;
+    align-items: center;
   }
-  .hero-bg{
-    position:absolute;
-    inset:0;
-    background-image:url('assets/event-centar-s-zemun.webp');
-    background-size:cover;
-    background-position:center 30%;
-  }
-  .hero-overlay{
-    position:absolute;
-    inset:0;
-    background:
-      linear-gradient(180deg, rgba(20,15,45,0.55) 0%, rgba(20,15,45,0.72) 55%, rgba(20,15,45,0.88) 100%);
-  }
-  .hero-content{
-    position:relative;
-    z-index:2;
-    max-width:720px;
-  }
-  .hero-content .eyebrow{color:#d9d2ff;}
-  .hero h1{
-    color:#fff;
-    font-size:clamp(38px, 6vw, 64px);
-    margin-bottom:22px;
-  }
-  .hero p.lead{
-    color:rgba(255,255,255,0.88);
-    font-size:19px;
-    max-width:56ch;
-    margin-bottom:34px;
-  }
-
-  /* ---------- INTRO / BOL ---------- */
-  .intro{
-    padding-top:72px;
-    padding-bottom:72px;
-    border-bottom:1px solid var(--line);
-  }
-  .intro-inner{
-    max-width:760px;
-    margin:0 auto;
-    text-align:center;
-  }
-  .intro-inner p{
-    font-size:19px;
-    color:var(--text);
-    max-width:65ch;
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  /* ---------- SALE GRID ---------- */
-  .sale-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:28px;
-  }
-  .sale-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-    overflow:hidden;
-    transition:transform .3s ease, box-shadow .3s ease;
-  }
-  .sale-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 30px 50px -30px rgba(28,24,50,0.35);
-  }
-  .sale-photo{
-    height:220px;
-    width:100%;
-    object-fit:cover;
-  }
-  .sale-photo-placeholder{
-    height:220px;
-    width:100%;
-    background:repeating-linear-gradient(135deg, #f0eefc, #f0eefc 12px, #e9e5fb 12px, #e9e5fb 24px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--text-faint);
-    font-size:13px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    text-align:center;
-    padding:16px;
-  }
-  .sale-body{padding:28px;}
-  .sale-cap{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:var(--accent-soft);
-    color:var(--accent-dark);
-    font-weight:700;
-    font-size:14px;
-    padding:7px 16px;
-    border-radius:var(--radius-btn);
-    margin-bottom:16px;
-  }
-  .sale-body h3{font-size:23px; margin-bottom:10px;}
-  .sale-body p{font-size:15px; margin-bottom:0;}
-
-  /* ---------- FEATURES ---------- */
-  .features{
-    background:var(--accent-soft);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .feature-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:24px;
-  }
-  .feature-card{
-    background:#fff;
-    border-radius:var(--radius-card);
-    padding:30px 24px;
-    text-align:left;
-    box-shadow:0 20px 40px -34px rgba(28,24,50,0.25);
-  }
-  .feature-icon{
-    width:44px;
-    height:44px;
-    border-radius:14px;
-    background:var(--accent-soft-2);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:18px;
-  }
-  .feature-card h3{font-size:18px; margin-bottom:8px;}
-  .feature-card p{font-size:14.5px; margin-bottom:0;}
-
-  /* ---------- PRICING / MENI ---------- */
-  .pricing-wrap{
-    display:grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap:56px;
-    align-items:center;
-  }
-  .pricing-text h2{font-size:clamp(28px,4vw,38px);}
+  .pricing-text .eyebrow{ margin-bottom: 16px; }
+  .pricing-text h2{ margin-bottom: 20px; }
+  .pricing-text p + p{ margin-top: 16px; }
+  .pricing-text .btn{ margin-top: 40px; }
   .pricing-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-    padding:40px;
-    position:relative;
-    overflow:hidden;
+    background: var(--bg);
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-card);
+    padding: 48px;
   }
-  .pricing-card::before{
-    content:"";
-    position:absolute;
-    top:-60px; right:-60px;
-    width:180px; height:180px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  }
-  .price-row{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    margin-bottom:6px;
-  }
+  .price-row{ display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; }
   .price-num{
-    font-family:'Marcellus', serif;
-    font-size:52px;
-    color:var(--accent-dark);
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 1.1;
+    color: var(--accent);
   }
-  .price-sep{font-size:24px; color:var(--text-faint);}
-  .price-unit{font-size:16px; color:var(--text-muted);}
-  .pricing-card p.note{font-size:14.5px; margin-top:18px; margin-bottom:24px;}
-  .price-list{margin-top:8px;}
+  .price-sep{ font-size: 24px; color: var(--text-faint); }
+  .price-unit{ font-size: 16px; color: var(--text-muted); }
+  .price-note{ font-size: 16px; margin-top: 16px; margin-bottom: 32px; }
+  .price-list{ border-top: 1px solid var(--accent-line); }
   .price-list li{
-    display:flex;
-    align-items:flex-start;
-    gap:10px;
-    font-size:15px;
-    color:var(--text-muted);
-    padding:8px 0;
-    border-top:1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--accent-line);
+    font-size: 16px;
+    color: var(--text);
   }
-  .price-list li:first-child{border-top:none;}
+  .price-list svg{ width: 16px; height: 16px; flex: none; margin-top: 6px; stroke: var(--accent); fill: none; stroke-width: 1.4; }
 
-  /* ---------- O BRENDU ---------- */
-  .about{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:64px;
-    align-items:center;
+  /* ===== O NAMA ===== */
+  .about-layout{
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 96px;
+    align-items: center;
   }
-  .about-photo{
-    border-radius:var(--radius-card);
-    overflow:hidden;
-    height:420px;
+  .about-figure{ position: relative; padding-top: 20px; padding-left: 20px; }
+  .about-figure::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
   }
-  .about-photo img{
-    width:100%; height:100%; object-fit:cover;
-  }
-  .about-text h2{font-size:clamp(28px,4vw,38px);}
-  .about-text p{max-width:52ch;}
+  .about-photo{ position: relative; aspect-ratio: 4 / 5; }
+  .about-photo img{ width: 100%; height: 100%; object-fit: cover; }
+  .about-text .eyebrow{ margin-bottom: 16px; }
+  .about-text h2{ margin-bottom: 24px; }
+  .about-text p + p{ margin-top: 16px; }
   .about-badges{
-    display:flex;
-    gap:32px;
-    margin-top:28px;
-    flex-wrap:wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--accent-line);
   }
   .about-badge b{
-    display:block;
-    font-family:'Marcellus', serif;
-    font-size:30px;
-    color:var(--accent-dark);
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.1;
+    color: var(--accent);
+    margin-bottom: 8px;
   }
-  .about-badge span{
-    font-size:13.5px;
-    color:var(--text-muted);
-  }
+  .about-badge span{ font-size: 16px; line-height: 1.4; color: var(--text-muted); }
 
-  /* ---------- STATS / UTISCI ---------- */
-  .stats{
-    background:var(--text);
-    color:#fff;
-  }
+  /* ===== BROJKA / TRAKA ===== */
+  .stats{ background: var(--ink); color: var(--bg); }
   .stats-inner{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:40px;
-    text-align:center;
-    flex-wrap:wrap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 56px;
+    padding-top: 96px;
+    padding-bottom: 96px;
   }
   .stats-number{
-    font-family:'Marcellus', serif;
-    font-size:clamp(64px, 9vw, 110px);
-    color:#fff;
-    line-height:1;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(72px, 9vw, 120px);
+    line-height: 1;
+    color: var(--bg);
   }
-  .stats-number span{color:#b8aaff;}
-  .stats-caption{
-    max-width:320px;
-    text-align:left;
-  }
-  .stats-caption p{
-    color:rgba(255,255,255,0.75);
-    margin-bottom:0;
-    font-size:17px;
-  }
+  .stats-number span{ color: var(--accent-light); }
+  .stats-caption{ max-width: 44ch; }
+  .stats-caption p{ color: rgba(253, 252, 254, 0.64); font-size: 20px; line-height: 1.6; }
 
-  /* ---------- KONTAKT ---------- */
-  .contact-grid{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:48px;
+  /* ===== KONTAKT ===== */
+  .contact{ background: var(--bg-soft); }
+  .contact-layout{
+    display: grid;
+    grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+    gap: 80px;
+    align-items: start;
   }
-  .contact-info{
-    background:var(--text);
-    color:#fff;
-    border-radius:var(--radius-card);
-    padding:44px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-  }
-  .contact-info h3{color:#fff; font-size:24px; margin-bottom:10px;}
-  .contact-info p{color:rgba(255,255,255,0.7); font-size:15px;}
+  .contact-info .eyebrow{ margin-bottom: 16px; }
+  .contact-info h2{ margin-bottom: 20px; }
+  .contact-list{ margin-top: 56px; border-top: 1px solid var(--accent-line); }
   .contact-item{
-    display:flex;
-    align-items:flex-start;
-    gap:14px;
-    margin-bottom:24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--accent-line);
   }
-  .contact-item .ci-icon{
-    width:40px; height:40px;
-    border-radius:12px;
-    background:rgba(255,255,255,0.08);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+  .contact-item svg{ width: 20px; height: 20px; flex: none; stroke: var(--accent); fill: none; stroke-width: 1.2; }
+  .contact-item strong{
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
   }
-  .contact-item strong{display:block; font-size:15.5px; margin-bottom:2px; color:#fff;}
-  .contact-item span, .contact-item a{font-size:14.5px; color:rgba(255,255,255,0.75);}
-  .contact-cta-box{
-    margin-top:20px;
-    padding-top:24px;
-    border-top:1px solid rgba(255,255,255,0.14);
-  }
-  .contact-form{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:var(--radius-card);
-    padding:44px;
-  }
-  .form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    margin-bottom:16px;
-  }
-  .field{margin-bottom:16px;}
-  .field label{
-    display:block;
-    font-size:13.5px;
-    font-weight:600;
-    margin-bottom:7px;
-    color:var(--text);
-  }
-  .field input, .field select, .field textarea{
-    width:100%;
-    padding:13px 16px;
-    border:1px solid var(--line);
-    border-radius:12px;
-    font-family:'Open Sans', sans-serif;
-    font-size:14.5px;
-    color:var(--text);
-    background:#fdfcff;
-    transition:border-color .2s ease, box-shadow .2s ease;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    outline:none;
-    border-color:var(--accent);
-    box-shadow:0 0 0 3px var(--accent-soft-2);
-  }
-  .field textarea{resize:vertical; min-height:110px;}
-  .contact-form .btn{width:100%; justify-content:center; margin-top:6px;}
+  .contact-item a, .contact-item span{ font-size: 20px; color: var(--ink); line-height: 1.4; }
+  .contact-item a:hover{ color: var(--accent); }
+  .contact-direct{ margin-top: 40px; }
+  .contact-direct p{ font-size: 16px; margin-bottom: 20px; }
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    padding-top:40px;
-    padding-bottom:40px;
+  .contact-form{ background: var(--bg); padding: 48px; }
+  .form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .form-group{ margin-bottom: 32px; }
+  .form-group label{
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 8px;
   }
-  .footer-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:16px;
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    width: 100%;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--accent-line);
+    border-radius: 0;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    transition: border-color 0.25s ease;
   }
-  .footer-inner p{margin-bottom:0; font-size:13.5px; color:var(--text-faint);}
-  .footer-logo{display:flex; align-items:center; gap:10px;}
-  .footer-logo img{height:34px;}
+  .form-group select{ appearance: none; -webkit-appearance: none; cursor: pointer; }
+  .form-group textarea{ resize: vertical; min-height: 96px; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{ outline: none; border-bottom-color: var(--accent); }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder{ color: rgba(28, 24, 50, 0.32); }
+  .contact-form .btn{ width: 100%; }
 
-  /* ---------- reveal ---------- */
-  .reveal{
-    opacity:1;
-    transform:translateY(14px);
-    transition: transform .7s cubic-bezier(.2,.7,.3,1), opacity .7s ease;
+  /* ===== FOOTER ===== */
+  footer{ padding-top: 96px; padding-bottom: 80px; background: var(--bg); }
+  .footer-grid{
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--accent-line);
   }
-  .reveal.in-view{
-    transform:translateY(0);
+  .footer-logo{ display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .footer-logo img{ height: 40px; width: auto; }
+  .footer-grid p{ font-size: 16px; max-width: 40ch; }
+  .footer-col h4{
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 20px;
   }
+  .footer-col li{ margin-bottom: 12px; font-size: 16px; color: var(--text-muted); }
+  .footer-col a:hover{ color: var(--accent); }
+  .footer-bottom{ padding-top: 32px; font-size: 12px; letter-spacing: 0.08em; color: var(--text-faint); }
 
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:1024px){
-    .feature-grid{grid-template-columns:repeat(2,1fr);}
-    .sale-grid{grid-template-columns:1fr 1fr;}
-    .about{grid-template-columns:1fr; gap:36px;}
-    .about-photo{height:320px;}
-    .pricing-wrap{grid-template-columns:1fr; gap:36px;}
-    .contact-grid{grid-template-columns:1fr; gap:32px;}
+  /* ===== REVEAL ===== */
+  .reveal{ transition: transform 0.6s ease; }
+  .reveal.pre{ transform: translateY(12px); }
+  .reveal.in{ transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1320px){
+    .hero h1{ font-size: 56px; }
   }
 
-  @media (max-width:768px){
-    section{padding-top:64px; padding-bottom:64px;}
-    .wrap{padding-left:20px; padding-right:20px;}
-    .sale-grid{grid-template-columns:1fr;}
-    .feature-grid{grid-template-columns:1fr;}
-    .form-row{grid-template-columns:1fr;}
-    .hero{min-height:88vh; padding-top:120px;}
-    .stats-inner{flex-direction:column; gap:20px;}
-    .stats-caption{text-align:center; max-width:100%;}
-    .contact-info, .contact-form{padding:30px 24px;}
-    .price-num{font-size:42px;}
+  @media (max-width: 1100px){
+    .features-layout{ grid-template-columns: 1fr; gap: 48px; }
+    .features-head{ position: static; }
+    .feature-row{ grid-template-columns: 40px minmax(0, 200px) minmax(0, 1fr) 40px; }
+    .about-layout, .contact-layout, .pricing-layout{ gap: 56px; }
+    .hero-grid{ gap: 40px; }
+    .hero h1{ font-size: 48px; }
+    .hero-media{ min-height: 480px; }
+    .halls-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 991px){
+    nav.desktop-nav, .header-cta{ display: none; }
+    .hamburger{ display: flex; }
+    .mobile-nav{ display: block; }
+
+    .hero{ padding-top: 40px; padding-bottom: 72px; }
+    .hero-grid{ grid-template-columns: 1fr; gap: 48px; }
+    .hero h1{ font-size: 60px; }
+    .hero-media{ min-height: 0; height: 360px; }
+
+    .about-layout, .contact-layout, .pricing-layout{ grid-template-columns: 1fr; }
+    .about-figure{ max-width: 440px; }
+    .stats-inner{ gap: 32px; }
+  }
+
+  @media (max-width: 768px){
+    :root{ --section-y: 80px; --gutter: 20px; }
+
+    h3{ font-size: 24px; }
+    .hero h1{ font-size: 38px; }
+    .hero-lead{ font-size: 16px; }
+    .section-head{ margin-bottom: 40px; }
+
+    .intro{ padding-top: 64px; padding-bottom: 64px; }
+    .intro-inner p{ font-size: 17px; }
+
+    .halls-grid{ grid-template-columns: 1fr; }
+    .hall-body{ padding: 28px 24px; }
+
+    .feature-row{
+      grid-template-columns: 40px minmax(0, 1fr) 40px;
+      gap: 12px 16px;
+    }
+    .feature-row h3{ grid-column: 2 / 3; }
+    .feature-row p{ grid-column: 2 / 4; }
+    .feature-mark{ grid-row: 1 / 2; grid-column: 3 / 4; }
+
+    .pricing-card{ padding: 32px 24px; }
+    .price-num{ font-size: 40px; }
+
+    .about-badges{ grid-template-columns: 1fr; gap: 24px; }
+    .about-badge b{ font-size: 32px; }
+
+    .stats-inner{ padding-top: 64px; padding-bottom: 64px; }
+    .stats-caption p{ font-size: 17px; }
+
+    .contact-form{ padding: 32px 24px; }
+    .form-row{ grid-template-columns: 1fr; gap: 0; }
+
+    .footer-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .hero-actions{ gap: 24px; }
+    .btn-primary, .btn-secondary{ padding: 16px 28px; }
+  }
+
+  @media (max-width: 480px){
+    .hero h1{ font-size: 34px; }
   }
 </style>
 </head>
 <body>
 
-  <header class="site-header" id="site-header">
-    <div class="wrap header-inner">
-      <a href="#hero" class="logo">
-        <img src="assets/logo.png" alt="Logo Event Centar S">
-      </a>
-      <nav class="nav-desktop">
-        <a href="#sale">Sale</a>
-        <a href="#meni">Meni</a>
-        <a href="#o-nama">O nama</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#kontakt" class="btn btn-primary btn-small">Zatraži ponudu</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<header id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#" class="logo">
+      <img src="assets/logo.png" alt="Logo Event Centar S">
+    </a>
+    <nav class="desktop-nav">
+      <a href="#sale">Sale</a>
+      <a href="#meni">Meni</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#kontakt" class="btn btn-secondary">Zatraži ponudu</a>
     </div>
-    <div class="mobile-menu" id="mobile-menu">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Meni" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <div class="wrap mobile-nav-inner">
       <a href="#sale">Sale</a>
       <a href="#meni">Meni</a>
       <a href="#o-nama">O nama</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#kontakt" class="btn btn-primary">Zatraži ponudu</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="hero" id="hero">
-    <div class="hero-bg" role="img" aria-label="Mladenci na plesu u sali Event Centra S u Zemunu"></div>
-    <div class="hero-overlay"></div>
-    <div class="wrap hero-content">
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
       <span class="eyebrow">Event Centar S · Zemun, Beograd</span>
-      <h1>Sala u Zemunu za proslavu koju ćeš pamtiti</h1>
-      <p class="lead">Tri sale, jedna adresa, kompletna organizacija. Bez obzira da li slaviš sa 80 ili 400 gostiju, ti dolaziš na proslavu, mi se pobrinemo za ostalo.</p>
-      <a href="#kontakt" class="btn btn-primary">Zatraži ponudu za tvoj datum</a>
+      <h1>Sala u Zemunu za proslavu<em>koju ćeš pamtiti</em></h1>
+      <p class="hero-lead">Tri sale, jedna adresa, kompletna organizacija. Bez obzira da li slaviš sa 80 ili 400 gostiju, ti dolaziš na proslavu, mi se pobrinemo za ostalo.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary">Zatraži ponudu za tvoj datum</a>
+        <a href="#sale" class="btn btn-tertiary">
+          Pogledaj sale
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg>
+        </a>
+      </div>
     </div>
-  </section>
+    <div class="hero-media">
+      <img src="assets/event-centar-s-zemun.webp" alt="Mladenci na plesu u sali Event Centra S u Zemunu">
+    </div>
+  </div>
+</section>
 
-  <section class="intro">
-    <div class="wrap intro-inner reveal">
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-inner reveal">
       <p>Tražiš salu za venčanje u Beogradu i svaki poziv ti vraća isto pitanje: koliko gostiju dolazi, kakav meni želiš, ko radi dekoraciju. Retko koji prostor ima kapacitet i za 100 i za 400 ljudi, uz hranu i ukras uključene u jedan dogovor. Event Centar S rešava to tako što sve drži pod jednim krovom, u Zemunu.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="sale">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Naše sale</span>
-        <h2>Tri sale, za svaku vrstu slavlja</h2>
-        <p>Od intimnog krštenja do svadbe sa nekoliko stotina gostiju, biraš prostor po broju ljudi koje pozivaš.</p>
+<section id="sale" class="halls section">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Naše sale</span>
+      <h2>Tri sale, za svaku vrstu slavlja</h2>
+      <p>Od intimnog krštenja do svadbe sa nekoliko stotina gostiju, biraš prostor po broju ljudi koje pozivaš.</p>
+    </div>
+
+    <div class="halls-grid">
+      <article class="hall-card reveal">
+        <div class="hall-media">
+          <img src="assets/svecana-sala-simona-event-centar-s.webp" alt="Enterijer sale Simona u Event Centru S, postavljeni stolovi za svadbeno slavlje">
+        </div>
+        <div class="hall-body">
+          <span class="hall-badge">Do 200 gostiju</span>
+          <h3>Sala Simona</h3>
+          <p>Idealna za svadbe i krštenja srednje veličine. Sve stolove postavljamo po tvom rasporedu, sa dekoracijom u boji koju izabereš.</p>
+        </div>
+      </article>
+
+      <article class="hall-card reveal">
+        <div class="hall-media">
+          <div class="photo-placeholder">Fotografija srednje sale</div>
+        </div>
+        <div class="hall-body">
+          <span class="hall-badge">Do 300 gostiju</span>
+          <h3>Srednja sala</h3>
+          <p>Za proslave sa dve porodice ili veće firme koje slave zajedno. Prostor je dovoljno velik za bend, ples i binu.</p>
+        </div>
+      </article>
+
+      <article class="hall-card reveal">
+        <div class="hall-media">
+          <div class="photo-placeholder">Fotografija velike sale</div>
+        </div>
+        <div class="hall-body">
+          <span class="hall-badge">Do 450 gostiju</span>
+          <h3>Velika sala</h3>
+          <p>Najveći prostor u Event Centru S. Za svadbe sa velikim brojem uzvanika i korporativne događaje sa programom.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="usluge" class="section">
+  <div class="wrap features-layout">
+    <div class="features-head reveal">
+      <span class="eyebrow">Šta dobijaš</span>
+      <h2>Sve što ti treba za jedan dan</h2>
+      <p>Ne moraš da tražiš dekoratera, kuvara i parking na tri različite adrese. Sve dogovoriš na jednom mestu.</p>
+    </div>
+
+    <div class="features-list">
+      <div class="feature-row reveal">
+        <span class="feature-num">01</span>
+        <h3>Parking za sve goste</h3>
+        <p>Prostran parking odmah uz salu, bez traganja za mestom pre proslave.</p>
+        <div class="feature-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="2"></rect><path d="M3 13h18"></path><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"></path></svg>
+        </div>
       </div>
-      <div class="sale-grid">
-        <div class="sale-card reveal">
-          <img class="sale-photo" src="assets/svecana-sala-simona-event-centar-s.webp" alt="Enterijer sale Simona u Event Centru S, postavljeni stolovi za svadbeno slavlje">
-          <div class="sale-body">
-            <span class="sale-cap">Do 200 gostiju</span>
-            <h3>Sala Simona</h3>
-            <p>Idealna za svadbe i krštenja srednje veličine. Sve stolove postavljamo po tvom rasporedu, sa dekoracijom u boji koju izabereš.</p>
-          </div>
+
+      <div class="feature-row reveal">
+        <span class="feature-num">02</span>
+        <h3>Dekoracija po tvom stilu</h3>
+        <p>Cveće, stolnjaci i osvetljenje biramo prema temi i bojama tvog slavlja.</p>
+        <div class="feature-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1.2 2 3 3 3 5.2A3 3 0 0 1 12 11a3 3 0 0 1-3-2.8C9 6 10.8 5 12 3z"></path><path d="M12 11v10"></path><path d="M8 21h8"></path></svg>
         </div>
-        <div class="sale-card reveal">
-          <div class="sale-photo-placeholder">FOTOGRAFIJA SREDNJE SALE</div>
-          <div class="sale-body">
-            <span class="sale-cap">Do 300 gostiju</span>
-            <h3>Srednja sala</h3>
-            <p>Za proslave sa dve porodice ili veće firme koje slave zajedno. Prostor je dovoljno velik za bend, ples i binu.</p>
-          </div>
+      </div>
+
+      <div class="feature-row reveal">
+        <span class="feature-num">03</span>
+        <h3>Organizacija celog dana</h3>
+        <p>Raspored stolova, tok programa i saradnja sa muzičarima - dogovaramo unapred, do detalja.</p>
+        <div class="feature-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M3 9h18"></path><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="m9 15 2 2 4-4"></path></svg>
         </div>
-        <div class="sale-card reveal">
-          <div class="sale-photo-placeholder">FOTOGRAFIJA VELIKE SALE</div>
-          <div class="sale-body">
-            <span class="sale-cap">Do 450 gostiju</span>
-            <h3>Velika sala</h3>
-            <p>Najveći prostor u Event Centru S. Za svadbe sa velikim brojem uzvanika i korporativne događaje sa programom.</p>
-          </div>
+      </div>
+
+      <div class="feature-row reveal">
+        <span class="feature-num">04</span>
+        <h3>30 godina iskustva</h3>
+        <p>Tri decenije organizujemo svadbe i proslave u Zemunu, znamo šta upropasti veče i to izbegavamo.</p>
+        <div class="feature-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 13 7 22l5-3 5 3-1.5-9"></path></svg>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="features" id="usluge">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Šta dobijaš</span>
-        <h2>Sve što ti treba za jedan dan</h2>
-        <p>Ne moraš da tražiš dekoratera, kuvara i parking na tri različite adrese. Sve dogovoriš na jednom mestu.</p>
+<section id="meni" class="pricing section">
+  <div class="wrap pricing-layout">
+    <div class="pricing-text reveal">
+      <span class="eyebrow">Meni</span>
+      <h2>Hrana koju gosti pamte, ne samo pojedu</h2>
+      <p>Meni pravimo prema broju gostiju i budžetu koji imaš na umu. Predlažemo raspon jela, ti biraš šta ide na sto.</p>
+      <p>Cena po osobi zavisi od izbora jela, pića i broja poslužavnika, ne od toga koju salu izabereš.</p>
+      <a href="#kontakt" class="btn btn-secondary">Pošalji upit za tvoj meni</a>
+    </div>
+
+    <div class="pricing-card reveal">
+      <div class="price-row">
+        <span class="price-num">35€</span>
+        <span class="price-sep">–</span>
+        <span class="price-num">60€</span>
+        <span class="price-unit">po osobi</span>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7360f2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="9" width="18" height="11" rx="2"></rect>
-              <path d="M3 13h18"></path>
-              <path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"></path>
-            </svg>
-          </div>
-          <h3>Parking za sve goste</h3>
-          <p>Prostran parking odmah uz salu, bez traganja za mestom pre proslave.</p>
+      <p class="price-note">Raspon zavisi od broja jela, vrste mesa i pića koje uključiš u ponudu.</p>
+      <ul class="price-list">
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          <span>Predjelo, glavno jelo i desert</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          <span>Piće tokom celog večernjeg programa</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          <span>Poslužavnici prilagođeni broju gostiju</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          <span>Degustacija menija pre rezervacije termina</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="o-nama" class="section">
+  <div class="wrap about-layout">
+    <div class="about-figure reveal">
+      <div class="about-photo">
+        <img src="assets/event-centar-s-zemun.webp" alt="Mladenci na plesu u sali Event Centra S okruženi gostima">
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">O nama</span>
+      <h2>Event Centar S u Zemunu, tri decenije unazad</h2>
+      <p>Event Centar S je svečana sala u Zemunu gde slavimo venčanja, krštenja, rođendane i poslovne događaje. Ne uzimamo svaki termin, jer svaku proslavu vodimo lično, od prvog dogovora do poslednje pesme.</p>
+      <p>Ne obećavamo raskoš koju ne možemo da isporučimo. Kažemo ti tačno šta dobijaš, koliko košta i kada je sala slobodna.</p>
+      <div class="about-badges">
+        <div class="about-badge">
+          <b>30</b>
+          <span>godina iskustva</span>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7360f2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3c1.2 2 3 3 3 5.2A3 3 0 0 1 12 11a3 3 0 0 1-3-2.8C9 6 10.8 5 12 3z"></path>
-              <path d="M12 11v10"></path>
-              <path d="M8 21h8"></path>
-            </svg>
-          </div>
-          <h3>Dekoracija po tvom stilu</h3>
-          <p>Cveće, stolnjaci i osvetljenje biramo prema temi i bojama tvog slavlja.</p>
+        <div class="about-badge">
+          <b>3</b>
+          <span>sale različitih kapaciteta</span>
         </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7360f2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="17" rx="2"></rect>
-              <path d="M3 9h18"></path>
-              <path d="M8 2v4"></path>
-              <path d="M16 2v4"></path>
-              <path d="m9 15 2 2 4-4"></path>
-            </svg>
-          </div>
-          <h3>Organizacija celog dana</h3>
-          <p>Raspored stolova, tok programa i saradnja sa muzičarima - dogovaramo unapred, do detalja.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7360f2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="5"></circle>
-              <path d="M8.5 13 7 22l5-3 5 3-1.5-9"></path>
-            </svg>
-          </div>
-          <h3>30 godina iskustva</h3>
-          <p>Tri decenije organizujemo svadbe i proslave u Zemunu, znamo šta upropasti veče i to izbegavamo.</p>
+        <div class="about-badge">
+          <b>450</b>
+          <span>gostiju u najvećoj sali</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="meni">
-    <div class="wrap">
-      <div class="pricing-wrap">
-        <div class="pricing-text reveal">
-          <span class="eyebrow">Meni</span>
-          <h2>Hrana koju gosti pamte, ne samo pojedu</h2>
-          <p>Meni pravimo prema broju gostiju i budžetu koji imaš na umu. Predlažemo raspon jela, ti biraš šta ide na sto.</p>
-          <p>Cena po osobi zavisi od izbora jela, pića i broja poslužavnika, ne od toga koju salu izabereš.</p>
-          <a href="#kontakt" class="btn btn-outline">Pošalji upit za tvoj meni</a>
-        </div>
-        <div class="pricing-card reveal">
-          <div class="price-row">
-            <span class="price-num">35€</span>
-            <span class="price-sep">–</span>
-            <span class="price-num">60€</span>
-            <span class="price-unit">po osobi</span>
-          </div>
-          <p class="note">Raspon zavisi od broja jela, vrste mesa i pića koje uključiš u ponudu.</p>
-          <ul class="price-list">
-            <li>Predjelo, glavno jelo i desert</li>
-            <li>Piće tokom celog večernjeg programa</li>
-            <li>Poslužavnici prilagođeni broju gostiju</li>
-            <li>Degustacija menija pre rezervacije termina</li>
-          </ul>
-        </div>
-      </div>
+<section class="stats" id="utisci">
+  <div class="wrap stats-inner reveal">
+    <div class="stats-number">30<span>+</span></div>
+    <div class="stats-caption">
+      <p>30 godina iskustva u organizaciji svadbi i proslava u Zemunu. Toliko dugo radimo isti posao, na istoj adresi.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="o-nama">
-    <div class="wrap">
-      <div class="about">
-        <div class="about-photo reveal">
-          <img src="assets/event-centar-s-zemun.webp" alt="Mladenci na plesu u sali Event Centra S okruženi gostima">
-        </div>
-        <div class="about-text reveal">
-          <span class="eyebrow">O nama</span>
-          <h2>Event Centar S u Zemunu, tri decenije unazad</h2>
-          <p>Event Centar S je svečana sala u Zemunu gde slavimo venčanja, krštenja, rođendane i poslovne događaje. Ne uzimamo svaki termin, jer svaku proslavu vodimo lično, od prvog dogovora do poslednje pesme.</p>
-          <p>Ne obećavamo raskoš koju ne možemo da isporučimo. Kažemo ti tačno šta dobijaš, koliko košta i kada je sala slobodna.</p>
-          <div class="about-badges">
-            <div class="about-badge">
-              <b>30</b>
-              <span>godina iskustva</span>
-            </div>
-            <div class="about-badge">
-              <b>3</b>
-              <span>sale različitih kapaciteta</span>
-            </div>
-            <div class="about-badge">
-              <b>450</b>
-              <span>gostiju u najvećoj sali</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="kontakt" class="contact section">
+  <div class="wrap contact-layout">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Rezervacija termina</span>
+      <h2>Popuni formu ili pozovi, javljamo se isti dan</h2>
+      <p class="p-max">Reci nam datum, broj gostiju i vrstu proslave. Vraćamo se sa ponudom i slobodnim terminima.</p>
 
-  <section class="stats" id="utisci">
-    <div class="wrap">
-      <div class="stats-inner reveal">
-        <div class="stats-number">30<span>+</span></div>
-        <div class="stats-caption">
-          <p>30 godina iskustva u organizaciji svadbi i proslava u Zemunu. Toliko dugo radimo isti posao, na istoj adresi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Rezervacija termina</span>
-        <h2>Popuni formu ili pozovi, javljamo se isti dan</h2>
-        <p>Reci nam datum, broj gostiju i vrstu proslave. Vraćamo se sa ponudom i slobodnim terminima.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
+      <div class="contact-list">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"></path></svg>
           <div>
-            <h3>Event Centar S</h3>
-            <p>Svečana sala za svadbe i proslave, Zemun, Beograd.</p>
-            <div class="contact-item" style="margin-top:28px;">
-              <div class="ci-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"></path>
-                </svg>
-              </div>
-              <div>
-                <strong>Pozovi za rezervaciju</strong>
-                <a href="tel:+381113772020">011/377-20-20</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="ci-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <div>
-                <strong>Lokacija</strong>
-                <span>Zemun, Beograd</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="ci-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-                  <path d="M3 8h18"></path>
-                  <path d="M8 2v4"></path>
-                  <path d="M16 2v4"></path>
-                </svg>
-              </div>
-              <div>
-                <strong>Radimo cele godine</strong>
-                <span>Svadbe, krštenja, rođendani, poslovni događaji</span>
-              </div>
-            </div>
-          </div>
-          <div class="contact-cta-box">
-            <p style="margin-bottom:16px;">Ne voliš forme? Pozovi direktno i reci nam datum.</p>
-            <a href="tel:+381113772020" class="btn btn-light">Pozovi 011/377-20-20</a>
+            <strong>Pozovi za rezervaciju</strong>
+            <a href="tel:+381113772020">011/377-20-20</a>
           </div>
         </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong>Lokacija</strong>
+            <span>Zemun, Beograd</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 8h18"></path><path d="M8 2v4"></path><path d="M16 2v4"></path></svg>
+          <div>
+            <strong>Radimo cele godine</strong>
+            <span>Svadbe, krštenja, rođendani, poslovni događaji</span>
+          </div>
+        </div>
+      </div>
 
-        <form class="contact-form reveal" action="#" method="post">
-          <div class="form-row">
-            <div class="field">
-              <label for="ime">Ime i prezime</label>
-              <input type="text" id="ime" name="ime" placeholder="Npr. Marija Petrović" required>
-            </div>
-            <div class="field">
-              <label for="telefon">Telefon</label>
-              <input type="tel" id="telefon" name="telefon" placeholder="06X XXX XXXX" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="datum">Željeni datum</label>
-              <input type="date" id="datum" name="datum">
-            </div>
-            <div class="field">
-              <label for="gosti">Broj gostiju</label>
-              <select id="gosti" name="gosti">
-                <option value="">Izaberi opseg</option>
-                <option value="do-150">do 150</option>
-                <option value="150-250">150 - 250</option>
-                <option value="250-350">250 - 350</option>
-                <option value="350-450">350 - 450</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="poruka">Vrsta proslave i poruka</label>
-            <textarea id="poruka" name="poruka" placeholder="Npr. venčanje, oko 200 gostiju, tražim ponudu za jul"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Pošalji upit i zatraži ponudu</button>
-        </form>
+      <div class="contact-direct">
+        <p>Ne voliš forme? Pozovi direktno i reci nam datum.</p>
+        <a href="tel:+381113772020" class="btn btn-tertiary">
+          Pozovi 011/377-20-20
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg>
+        </a>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <div class="footer-logo">
-        <img src="assets/logo.png" alt="Logo Event Centar S">
+    <form class="contact-form reveal" action="#" method="post">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ime">Ime i prezime</label>
+          <input type="text" id="ime" name="ime" placeholder="Npr. Marija Petrović" required>
+        </div>
+        <div class="form-group">
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="telefon" placeholder="06X XXX XXXX" required>
+        </div>
       </div>
-      <p>© Event Centar S, Zemun, Beograd. Sva prava zadržana.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="datum">Željeni datum</label>
+          <input type="date" id="datum" name="datum">
+        </div>
+        <div class="form-group">
+          <label for="gosti">Broj gostiju</label>
+          <select id="gosti" name="gosti">
+            <option value="">Izaberi opseg</option>
+            <option value="do-150">do 150</option>
+            <option value="150-250">150 - 250</option>
+            <option value="250-350">250 - 350</option>
+            <option value="350-450">350 - 450</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="poruka">Vrsta proslave i poruka</label>
+        <textarea id="poruka" name="poruka" placeholder="Npr. venčanje, oko 200 gostiju, tražim ponudu za jul"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Pošalji upit i zatraži ponudu</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="Logo Event Centar S">
+        </div>
+        <p>Svečana sala za svadbe, krštenja, rođendane i poslovne događaje u Zemunu, Beograd.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Stranica</h4>
+        <ul>
+          <li><a href="#sale">Sale</a></li>
+          <li><a href="#meni">Meni</a></li>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+381113772020">011/377-20-20</a></li>
+          <li>Zemun, Beograd</li>
+          <li>Radimo cele godine</li>
+        </ul>
+      </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>© 2026 Event Centar S, Zemun, Beograd. Sva prava zadržana.</p>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    // Header scroll state
-    const header = document.getElementById('site-header');
-    const onScroll = () => {
-      if(window.scrollY > 16){
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-    onScroll();
+<script>
+  /* ===== HEADER I MOBILNI MENI ===== */
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var siteHeader = document.getElementById('siteHeader');
 
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
+  hamburgerBtn.addEventListener('click', function () {
+    var open = mobileNav.classList.toggle('open');
+    hamburgerBtn.classList.toggle('active', open);
+    hamburgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.mobile-nav-inner a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      hamburgerBtn.classList.remove('active');
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
     });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', false);
+  });
+
+  function onScroll() {
+    siteHeader.classList.toggle('scrolled', window.scrollY > 24);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ===== REVEAL ===== */
+  if ('IntersectionObserver' in window) {
+    var revealEls = document.querySelectorAll('.reveal');
+    revealEls.forEach(function (el) { el.classList.add('pre'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('pre');
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
       });
-    });
-
-    // Reveal on scroll
-    if('IntersectionObserver' in window){
-      const revealEls = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add('in-view');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      revealEls.forEach(el => io.observe(el));
-    }
-  </script>
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+</script>
 </body>
 </html>
