@@ -233,12 +233,13 @@
   .hero{ padding-top: 56px; padding-bottom: 96px; }
   .hero-grid{
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr);
     gap: 64px;
     align-items: center;
   }
   .hero-text .eyebrow{ margin-bottom: 16px; }
   .hero h1{ margin-bottom: 28px; }
+  .hero h1 .l1{ display: block; white-space: nowrap; }
   .hero h1 em{
     display: block;
     font-style: italic;
@@ -247,17 +248,196 @@
   .hero-lead{
     font-size: 20px;
     line-height: 1.6;
-    max-width: 46ch;
+    max-width: 40ch;
     margin-bottom: 44px;
   }
   .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 32px; }
-  .hero-media{ height: 100%; min-height: 560px; }
-  .hero-media img{ width: 100%; height: 100%; object-fit: cover; }
 
-  /* ===== INTRO ===== */
-  .intro{ padding-top: 96px; padding-bottom: 96px; border-bottom: 1px solid var(--accent-line); }
-  .intro-inner{ max-width: 760px; margin: 0 auto; text-align: center; }
-  .intro-inner p{ font-size: 20px; line-height: 1.6; color: var(--text); }
+  .hero-media{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 340px 200px;
+    gap: 16px;
+  }
+  .hero-shot{
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    background: var(--bg-soft);
+  }
+  .hero-shot img{ width: 100%; height: 100%; object-fit: cover; }
+  .hero-shot-main{ grid-column: 1 / 3; }
+  .hero-shot-caption{
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(253, 252, 254, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .hero-note{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    padding: 24px 28px;
+    background: var(--accent);
+    color: #fff;
+  }
+  .hero-note::before{
+    content: "";
+    position: absolute;
+    top: -48px;
+    right: -48px;
+    width: 140px;
+    height: 140px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .hero-note-label{
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.76);
+  }
+  .hero-note b{
+    position: relative;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.1;
+  }
+  .hero-note span.hero-note-sub{ position: relative; font-size: 16px; color: rgba(255, 255, 255, 0.82); }
+
+  /* ===== PROBLEM I REŠENJE ===== */
+  .ps{ border-bottom: 1px solid var(--accent-line); }
+  .ps-ornament{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    max-width: 240px;
+    margin: 32px auto 0;
+  }
+  .ps-ornament i{ flex: 1; height: 1px; background: var(--accent-line); }
+  .ps-ornament b{ flex: none; width: 8px; height: 8px; transform: rotate(45deg); background: var(--accent); }
+  .ps-ornament b:nth-of-type(2){ width: 5px; height: 5px; opacity: 0.5; }
+
+  .ps-grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .ps-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-card);
+    padding: 48px;
+  }
+  .ps-problem{
+    background: var(--bg-soft);
+    border: 1px solid var(--accent-line);
+  }
+  .ps-solution{
+    overflow: hidden;
+    background: linear-gradient(152deg, #efebfd 0%, var(--bg) 62%);
+    border: 1px solid var(--accent);
+  }
+  .ps-solution::before{
+    content: "";
+    position: absolute;
+    top: -72px;
+    right: -72px;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(115, 96, 242, 0.22) 0%, transparent 70%);
+  }
+  .ps-tag{
+    position: relative;
+    align-self: flex-start;
+    padding: 8px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--accent-line);
+    background: rgba(253, 252, 254, 0.8);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 28px;
+  }
+  .ps-solution .ps-tag{ border-color: var(--accent); color: var(--accent); }
+  .ps-card h3{ position: relative; margin-bottom: 28px; }
+  .ps-list{ position: relative; display: grid; gap: 4px; }
+  .ps-list li{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-top: 1px solid var(--accent-line);
+    font-size: 16px;
+    color: var(--text);
+  }
+  .ps-list li:first-child{ border-top: none; }
+  .ps-mark{
+    flex: none;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--accent-line);
+    color: var(--text-faint);
+  }
+  .ps-solution .ps-mark{ background: var(--accent); border-color: var(--accent); color: #fff; }
+  .ps-mark svg{ width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .ps-problem .ps-list li{ color: var(--text-muted); }
+
+  .ps-bridge{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .ps-bridge i{
+    flex: 1;
+    width: 1px;
+    background: var(--accent-line);
+  }
+  .ps-bridge b{
+    flex: none;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+    background: var(--accent);
+  }
+
+  .ps-foot{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--accent-line);
+  }
+  .ps-foot p{ font-size: 16px; }
 
   /* ===== SALE ===== */
   .halls{ background: var(--bg-soft); }
@@ -560,8 +740,10 @@
     .about-layout, .contact-layout, .pricing-layout{ gap: 56px; }
     .hero-grid{ gap: 40px; }
     .hero h1{ font-size: 48px; }
-    .hero-media{ min-height: 480px; }
+    .hero-media{ grid-template-rows: 280px 176px; }
     .halls-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ps-grid{ grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); }
+    .ps-card{ padding: 40px 32px; }
   }
 
   @media (max-width: 991px){
@@ -572,7 +754,11 @@
     .hero{ padding-top: 40px; padding-bottom: 72px; }
     .hero-grid{ grid-template-columns: 1fr; gap: 48px; }
     .hero h1{ font-size: 60px; }
-    .hero-media{ min-height: 0; height: 360px; }
+    .hero-media{ grid-template-rows: 320px 180px; }
+
+    .ps-grid{ grid-template-columns: 1fr; gap: 0; }
+    .ps-bridge{ flex-direction: row; padding-top: 24px; padding-bottom: 24px; }
+    .ps-bridge i{ flex: 1; width: auto; height: 1px; }
 
     .about-layout, .contact-layout, .pricing-layout{ grid-template-columns: 1fr; }
     .about-figure{ max-width: 440px; }
@@ -587,8 +773,14 @@
     .hero-lead{ font-size: 16px; }
     .section-head{ margin-bottom: 40px; }
 
-    .intro{ padding-top: 64px; padding-bottom: 64px; }
-    .intro-inner p{ font-size: 17px; }
+    .hero-media{ grid-template-rows: 240px 144px; gap: 12px; }
+    .hero-note{ padding: 20px; }
+    .hero-note b{ font-size: 32px; }
+    .hero-note-sub{ font-size: 14px; }
+    .hero-shot-caption{ left: 12px; bottom: 12px; padding: 8px 12px; font-size: 10px; }
+
+    .ps-card{ padding: 32px 24px; }
+    .ps-foot{ margin-top: 40px; gap: 24px; }
 
     .halls-grid{ grid-template-columns: 1fr; }
     .hall-body{ padding: 28px 24px; }
@@ -658,26 +850,93 @@
   <div class="wrap hero-grid">
     <div class="hero-text">
       <span class="eyebrow">Event Centar S · Zemun, Beograd</span>
-      <h1>Sala u Zemunu za proslavu<em>koju ćeš pamtiti</em></h1>
-      <p class="hero-lead">Tri sale, jedna adresa, kompletna organizacija. Bez obzira da li slaviš sa 80 ili 400 gostiju, ti dolaziš na proslavu, mi se pobrinemo za ostalo.</p>
+      <h1><span class="l1">Sala u Zemunu za</span><em>proslavu života</em></h1>
+      <p class="hero-lead">Tri sale, do 450 gostiju, jedna adresa. Hrana, dekoracija i organizacija ulaze u isti dogovor.</p>
       <div class="hero-actions">
-        <a href="#kontakt" class="btn btn-primary">Zatraži ponudu za tvoj datum</a>
+        <a href="#kontakt" class="btn btn-primary">Zatraži ponudu</a>
         <a href="#sale" class="btn btn-tertiary">
           Pogledaj sale
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg>
         </a>
       </div>
     </div>
+
     <div class="hero-media">
-      <img src="assets/event-centar-s-zemun.webp" alt="Mladenci na plesu u sali Event Centra S u Zemunu">
+      <figure class="hero-shot hero-shot-main">
+        <img src="assets/event-centar-s-zemun.webp" alt="Mladenci na plesu u sali Event Centra S u Zemunu">
+        <figcaption class="hero-shot-caption">Svadba u Event Centru S</figcaption>
+      </figure>
+      <figure class="hero-shot">
+        <img src="assets/svecana-sala-simona-event-centar-s.webp" alt="Enterijer sale Simona sa postavljenim stolovima za svadbeno slavlje">
+      </figure>
+      <div class="hero-note">
+        <span class="hero-note-label">Najveća sala</span>
+        <b>450</b>
+        <span class="hero-note-sub">gostiju za jednim krovom</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="intro">
+<section class="ps section">
   <div class="wrap">
-    <div class="intro-inner reveal">
-      <p>Tražiš salu za venčanje u Beogradu i svaki poziv ti vraća isto pitanje: koliko gostiju dolazi, kakav meni želiš, ko radi dekoraciju. Retko koji prostor ima kapacitet i za 100 i za 400 ljudi, uz hranu i ukras uključene u jedan dogovor. Event Centar S rešava to tako što sve drži pod jednim krovom, u Zemunu.</p>
+    <div class="section-head center reveal">
+      <span class="eyebrow">Problem i rešenje</span>
+      <h2>Jedna adresa umesto tri</h2>
+      <p>Kapacitet, hrana i dekoracija najčešće se dogovaraju na tri strane. Mi ih držimo pod jednim krovom, u Zemunu.</p>
+      <div class="ps-ornament" aria-hidden="true"><i></i><b></b><b></b><i></i></div>
+    </div>
+
+    <div class="ps-grid">
+      <article class="ps-card ps-problem reveal">
+        <span class="ps-tag">Kako obično ide</span>
+        <h3>Tri poziva, tri odgovora</h3>
+        <ul class="ps-list">
+          <li>
+            <span class="ps-mark"><svg viewBox="0 0 24 24" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></span>
+            <span>Sala prima 150 ljudi, a ti zoveš 300.</span>
+          </li>
+          <li>
+            <span class="ps-mark"><svg viewBox="0 0 24 24" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></span>
+            <span>Hranu dogovaraš na jednoj adresi, dekoraciju na drugoj.</span>
+          </li>
+          <li>
+            <span class="ps-mark"><svg viewBox="0 0 24 24" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></span>
+            <span>Konačnu cenu saznaješ na kraju, kad je kasno da biraš.</span>
+          </li>
+        </ul>
+      </article>
+
+      <div class="ps-bridge" aria-hidden="true">
+        <i></i><b></b><i></i>
+      </div>
+
+      <article class="ps-card ps-solution reveal">
+        <span class="ps-tag">Kod nas</span>
+        <h3>Jedan dogovor, sve u njemu</h3>
+        <ul class="ps-list">
+          <li>
+            <span class="ps-mark"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+            <span>Tri sale: do 200, 300 i 450 gostiju.</span>
+          </li>
+          <li>
+            <span class="ps-mark"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+            <span>Meni, dekoracija i organizacija u istom dogovoru.</span>
+          </li>
+          <li>
+            <span class="ps-mark"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>
+            <span>Cenu po osobi znaš pre nego što rezervišeš termin.</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="ps-foot reveal">
+      <p>Reci nam datum i broj gostiju, ostalo je naš posao.</p>
+      <a href="#kontakt" class="btn btn-tertiary">
+        Proveri da li je tvoj datum slobodan
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg>
+      </a>
     </div>
   </div>
 </section>
