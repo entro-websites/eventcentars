@@ -781,26 +781,124 @@
   }
   .about-badge span{ font-size: 16px; line-height: 1.4; color: var(--text-muted); }
 
-  /* ===== BROJKA / TRAKA ===== */
-  .stats{ background: var(--ink); color: var(--bg); }
-  .stats-inner{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 56px;
-    padding-top: 96px;
-    padding-bottom: 96px;
+  /* ===== UTISCI ===== */
+  .testimonials{ background: var(--ink); color: var(--bg); }
+  .testimonials .section-head h2{ color: var(--bg); }
+  .testimonials .section-head p{ color: rgba(253, 252, 254, 0.64); }
+  .testimonials .eyebrow{ color: var(--accent-light); }
+  .t-grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
   }
-  .stats-number{
+  .t-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(253, 252, 254, 0.16);
+    border-radius: var(--radius-card);
+    padding: 40px;
+    background: rgba(253, 252, 254, 0.04);
+  }
+  .t-quote{
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: clamp(72px, 9vw, 120px);
+    font-size: 64px;
     line-height: 1;
+    color: var(--accent-light);
+    margin-bottom: 16px;
+  }
+  .t-card blockquote{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--bg);
+    margin-bottom: 32px;
+  }
+  .t-foot{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(253, 252, 254, 0.16);
+  }
+  .t-avatar{
+    flex: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(253, 252, 254, 0.1);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
     color: var(--bg);
   }
-  .stats-number span{ color: var(--accent-light); }
-  .stats-caption{ max-width: 44ch; }
-  .stats-caption p{ color: rgba(253, 252, 254, 0.64); font-size: 20px; line-height: 1.6; }
+  .t-name{ display: block; font-size: 16px; color: var(--bg); }
+  .t-meta{ display: block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(253, 252, 254, 0.5); }
+
+  /* ===== FAQ ===== */
+  .faq-layout{
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 96px;
+    align-items: start;
+  }
+  .faq-head{ position: sticky; top: 128px; }
+  .faq-head .eyebrow{ margin-bottom: 16px; }
+  .faq-head h2{ margin-bottom: 20px; }
+  .faq-list{ border-top: 1px solid var(--accent-line); }
+  .faq-item{ border-bottom: 1px solid var(--accent-line); }
+  .faq-item summary{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+  .faq-item summary::-webkit-details-marker{ display: none; }
+  .faq-item summary:hover{ color: var(--accent-dark); }
+  .faq-item summary:focus-visible{ outline: 2px solid var(--accent); outline-offset: 4px; }
+  .faq-sign{
+    position: relative;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--accent-line);
+    border-radius: 999px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .faq-sign::before,
+  .faq-sign::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 1px;
+    background: var(--accent);
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  .faq-sign::after{ transform: translate(-50%, -50%) rotate(90deg); }
+  .faq-item summary:hover .faq-sign{ background: var(--accent); border-color: var(--accent); }
+  .faq-item summary:hover .faq-sign::before,
+  .faq-item summary:hover .faq-sign::after{ background: #fff; }
+  .faq-item[open] .faq-sign::after{ transform: translate(-50%, -50%) rotate(0deg); }
+  .faq-answer{ padding-bottom: 28px; }
+  .faq-answer p{ font-size: 16px; max-width: 60ch; }
 
   /* ===== KONTAKT ===== */
   .contact{ background: var(--bg-soft); }
@@ -936,7 +1034,9 @@
 
     .about-layout, .contact-layout, .pricing-layout{ grid-template-columns: 1fr; }
     .about-figure{ max-width: 440px; }
-    .stats-inner{ gap: 32px; }
+    .t-grid{ grid-template-columns: 1fr; }
+    .faq-layout{ grid-template-columns: 1fr; gap: 48px; }
+    .faq-head{ position: static; }
   }
 
   @media (max-width: 768px){
@@ -987,8 +1087,10 @@
     .about-badges{ grid-template-columns: 1fr; gap: 24px; }
     .about-badge b{ font-size: 32px; }
 
-    .stats-inner{ padding-top: 64px; padding-bottom: 64px; }
-    .stats-caption p{ font-size: 17px; }
+    .t-card{ padding: 28px 24px; }
+    .t-card blockquote{ font-size: 20px; }
+    .t-quote{ font-size: 48px; }
+    .faq-item summary{ font-size: 20px; padding-top: 24px; padding-bottom: 24px; gap: 16px; }
 
     .contact-form{ padding: 32px 24px; }
     .form-row{ grid-template-columns: 1fr; gap: 0; }
@@ -1332,11 +1434,111 @@
   </div>
 </section>
 
-<section class="stats" id="utisci">
-  <div class="wrap stats-inner reveal">
-    <div class="stats-number">30<span>+</span></div>
-    <div class="stats-caption">
-      <p>30 godina iskustva u organizaciji svadbi i proslava u Zemunu. Toliko dugo radimo isti posao, na istoj adresi.</p>
+<section class="testimonials section" id="utisci">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Utisci</span>
+      <h2>Šta kažu oni koji su slavili kod nas</h2>
+      <p>Trideset godina i tri sale znače mnogo proslava. Ovo su neke od njih.</p>
+    </div>
+
+    <div class="t-grid">
+      <figure class="t-card reveal">
+        <div class="t-quote" aria-hidden="true">&ldquo;</div>
+        <blockquote>Ovde ide citat gosta, dve do tri rečenice o tome kako je prošla proslava i šta im je najviše značilo.</blockquote>
+        <figcaption class="t-foot">
+          <span class="t-avatar" aria-hidden="true">?</span>
+          <span>
+            <span class="t-name">Ime i prezime</span>
+            <span class="t-meta">Vrsta proslave, godina</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="t-card reveal">
+        <div class="t-quote" aria-hidden="true">&ldquo;</div>
+        <blockquote>Ovde ide citat gosta, dve do tri rečenice o tome kako je prošla proslava i šta im je najviše značilo.</blockquote>
+        <figcaption class="t-foot">
+          <span class="t-avatar" aria-hidden="true">?</span>
+          <span>
+            <span class="t-name">Ime i prezime</span>
+            <span class="t-meta">Vrsta proslave, godina</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="t-card reveal">
+        <div class="t-quote" aria-hidden="true">&ldquo;</div>
+        <blockquote>Ovde ide citat gosta, dve do tri rečenice o tome kako je prošla proslava i šta im je najviše značilo.</blockquote>
+        <figcaption class="t-foot">
+          <span class="t-avatar" aria-hidden="true">?</span>
+          <span>
+            <span class="t-name">Ime i prezime</span>
+            <span class="t-meta">Vrsta proslave, godina</span>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="pitanja" class="section">
+  <div class="wrap faq-layout">
+    <div class="faq-head reveal">
+      <span class="eyebrow">Česta pitanja</span>
+      <h2>Ono što nas najčešće pitaju</h2>
+      <p>Ako nešto nije ovde, pozovi i pitaj direktno.</p>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary>Koliki je kapacitet sala?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Imamo tri sale: do 200, do 300 i do 450 gostiju. Biraš prostor prema broju ljudi koje pozivaš, a raspored stolova slažemo po tvom spisku.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Koliko košta po osobi?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Od 35 do 60 evra po osobi. Raspon zavisi od broja jela, vrste mesa i pića koje uključiš u ponudu, ne od toga koju salu izabereš.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Mogu li da probam meni pre rezervacije?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Možeš. Degustaciju menija radimo pre nego što potvrdiš termin, pa biraš na osnovu ukusa, a ne opisa u ponudi.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Da li je dekoracija uključena?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Jeste. Cveće, stolnjake i osvetljenje biramo prema temi i bojama tvog slavlja, u istom dogovoru sa menijem.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Ima li parkinga za goste?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Ima. Prostran parking je odmah uz salu, pa gosti ne traže mesto pre proslave.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Kakve sve proslave radite?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Svadbe, krštenja, rođendane i poslovne događaje, cele godine. Svaku proslavu vodimo lično, od prvog dogovora do poslednje pesme.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Koliko unapred treba rezervisati termin?<span class="faq-sign" aria-hidden="true"></span></summary>
+        <div class="faq-answer">
+          <p>Zavisi od datuma, u sezoni venčanja termini odu ranije. Javi nam datum i odmah ti kažemo da li je slobodan.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
